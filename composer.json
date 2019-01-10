@@ -15,7 +15,7 @@
         "symfony/framework-bundle": "4.2.*",
         "symfony/http-kernel": "4.2.*",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/orm-pack": "*",
+        "symfony/orm-pack": "^1.0",
         "symfony/process": "4.2.*",
         "symfony/security-bundle": "4.2.*",
         "symfony/serializer-pack": "*",
@@ -24,7 +24,8 @@
         "symfony/twig-bundle": "4.2.*",
         "symfony/validator": "4.2.*",
         "symfony/web-link": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "twbs/bootstrap": "^4.2"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
