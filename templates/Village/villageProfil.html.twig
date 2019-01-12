@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+    {% block body %}
+
+        <h1 class="btn btn-default btn-lg btn-block" style=" width: 30%">Wioska : {{ village.name }}</h1>
+        <h2 class="btn btn-default btn-lg btn-block" style=" width: 30%">Surowce:</h2>
+        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Jedzenie : {{ village.food }}</h3>
+        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Kamień : {{ village.stone }}</h3>
+        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Węgiel : {{ village.carbon }}</h3>
+        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Złoto : {{ village.gold }}</h3>
+        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Drewno : {{ village.wood }}</h3>
+        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Poziom Wioski : {{ village.level }}</h3>
+
+
+
+    {% endblock %}

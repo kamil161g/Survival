@@ -16,5 +16,12 @@ createVillage:
     path: /createnewvillage
     controller: App\Controller\CreateNewVillageController:createNewVillageAction
 
+
+myProfilVillage:
+    path: /village/{id}
+    controller: App\Controller\ViewVillageController:viewVillageAction
+
+
+#------------------------------------------------------------------------------------------------
 logout:
     path: /logout
