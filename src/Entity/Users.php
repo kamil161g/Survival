@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -30,9 +33,18 @@ class Users implements  UserInterface
     private $plainPassword;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(unique= true, type="string", length=255)
      */
     private $email;
+
+    /**
+     * @var Village
+     * @ORM\OneToMany(targetEntity="App\Entity\Village", mappedBy="user")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $village;
+
+
 
     public function getId(): ?int
     {
@@ -108,7 +120,7 @@ class Users implements  UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return array('ROLE_USER');
     }
 
     /**
@@ -143,4 +155,35 @@ class Users implements  UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+    public function __construct()
+    {
+        $this->village = new ArrayCollection();
+    }
+
+    /**
+     * @param Village $village
+     * @return $this
+     */
+    public function setFootballer(Village $village)
+    {
+        $this->village[] = $village;
+
+        return $this;
+    }
+
+    /**
+     * @return Village[]|ArrayCollection
+     */
+    public function getFootballer()
+    {
+        return $this->village;
+    }
+
+
+
+
+
+
+
 }

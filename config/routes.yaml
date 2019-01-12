@@ -1,7 +1,20 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
-
+index:
+    path: /
+    controller: App\Controller\IndexController::indexAction
+#------------------------------------------------------------------------------------------------
 registration:
     path: /registration
     controller: App\Controller\RegistrationController::createNewUserAction
+#------------------------------------------------------------------------------------------------
+
+viewMenu:
+    path: /menu
+    controller: App\Controller\ViewMenuController:viewMenuAction
+
+#------------------------------------------------------------------------------------------------
+createVillage:
+    path: /createnewvillage
+    controller: App\Controller\CreateNewVillageController:createNewVillageAction
+
+logout:
+    path: /logout

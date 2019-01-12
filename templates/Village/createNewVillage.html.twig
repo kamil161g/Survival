@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+    {% block body %}
+
+        {{ form_start(form) }}
+
+            {{ form_row(form.name, {'attr' : { 'class' :'form-control', 'style' : 'width: 30%' }}) }}
+            {{ form_row(form.submit, {'attr' : { 'class' :'form-control', 'style' : 'width: 30%' }}) }}
+
+        {{ form_end(form) }}
+
+
+    {% endblock %}
