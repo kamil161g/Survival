@@ -44,6 +44,13 @@ class Users implements  UserInterface
      */
     private $village;
 
+    /**
+     * @var Food
+     * @ORM\OneToMany(targetEntity="App\Entity\Food", mappedBy="user")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $food;
+
 
 
     public function getId(): ?int
@@ -159,13 +166,14 @@ class Users implements  UserInterface
     public function __construct()
     {
         $this->village = new ArrayCollection();
+        $this->food = new ArrayCollection();
     }
 
     /**
      * @param Village $village
      * @return $this
      */
-    public function setFootballer(Village $village)
+    public function setUsers(Village $village)
     {
         $this->village[] = $village;
 
@@ -175,9 +183,28 @@ class Users implements  UserInterface
     /**
      * @return Village[]|ArrayCollection
      */
-    public function getFootballer()
+    public function getUsers()
     {
         return $this->village;
+    }
+
+    /**
+     * @param Food $food
+     * @return $this
+     */
+    public function setFood(Food $food)
+    {
+        $this->food[] = $food;
+
+        return $this;
+    }
+
+    /**
+     * @return Food[]|ArrayCollection
+     */
+    public function getFood()
+    {
+        return $this->food;
     }
 
 

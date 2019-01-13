@@ -8,6 +8,7 @@
     {% endblock %}
     <body style="background-color: rgba(74,74,74,0.91)">
     <div class="container"><h2 style="color: red"> SurvivalVillage </h2>
+
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <a href="{{ path('logout') }}">WYLOGUJ SIĘ</a>
         {% endif %}

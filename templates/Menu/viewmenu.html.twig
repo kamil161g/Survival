@@ -5,7 +5,9 @@
 
             <button class="btn btn-default" style="width: 10%" type="submit">Mój profil</button><br/>
         {% if  village %}
-            <button class="btn btn-default" style="width: 10%" type="submit">Moja wioska</button><br/>
+            <a href="{{ path('myProfilVillage', {'id': app.user.id}) }}">
+                <button class="btn btn-default" style="width: 10%" type="submit">Moja wioska</button><br/>
+            </a>
             <button class="btn btn-default" style="width: 10%" type="submit">Polowanie</button><br/>
             <button class="btn btn-default" style="width: 10%" type="submit">Wyprawa</button><br/>
         {% else %}

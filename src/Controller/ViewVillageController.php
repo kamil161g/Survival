@@ -1,27 +1,31 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kamil
- * Date: 12.01.19
- * Time: 10:33
- */
+
 
 namespace App\Controller;
 
 
+use App\Entity\Material;
 use App\Entity\Village;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ViewVillageController extends AbstractController
 {
-    public function viewVillageAction()
+    public function viewVillageAction($id)
     {
         $village = $this->getDoctrine()
             ->getRepository(Village::class)
-            ->findOneBy(['user' => $this->getUser()]);
+            ->findOneBy(['user' => $id]);
+
+        $food = $this->getDoctrine()
+            ->getRepository(Material::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'Food'
+            ]);
 
         return $this->render("Village/villageProfil.html.twig",[
-            'village' => $village
+            'village' => $village,
+            'food' => $food
         ]);
     }
 }

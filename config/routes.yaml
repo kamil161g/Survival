@@ -21,7 +21,25 @@ myProfilVillage:
     path: /village/{id}
     controller: App\Controller\ViewVillageController:viewVillageAction
 
+editProfilVillage:
+    path: /editvilage
+    controller: App\Controller\EditVillageController:editVillageAction
+
 
 #------------------------------------------------------------------------------------------------
 logout:
     path: /logout
+
+#------------------------------------------------------------------------------------------------
+
+viewFood:
+    path: /viewfood
+    controller: App\Controller\ViewFoodController:getFoodAction
+
+getFood:
+    path: /getfood
+    controller: App\Controller\GetFoodController:getFoodAction
+
+addedLevelFood:
+    path: /addedlevelfood
+    controller: App\Controller\AddLevelFoodController:addLevelFoodAction
