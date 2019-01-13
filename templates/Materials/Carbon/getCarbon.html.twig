@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+        {% block body %}
+
+            <p style="color: white;">Poziom szukania węgla w twojej wiosce : {{ food_value.level }}</p>
+            <p style="color: white;">Ilośc węgla w twojej wiosce : {{ food_value.value }}</p>
+            <p style="color: white;">Czas oczekiwania to : 10 minut</p>
+            <p style="color: white;">Misja zakończy się o : {{ time|date('H:i:s') }}</p>
+
+            <h2>Czy chcesz wysłać swoich ludzi na poszukiwania węgla ?</h2>
+
+
+            <a href="{{ path('getCarbon') }}"><button class="btn-success">TAK</button></a>
+            <a href="{{ path('viewMenu') }}"><button class="btn-danger">NIE</button></a>
+
+            <h2>Czy chcesz zwiększyć poziom szukania węgla w twojej wiosce ?</h2>
+
+
+            <a href="{{ path('addedLevelCarbon') }}"><button class="btn-success">TAK</button></a>
+            <a href="{{ path('viewMenu') }}"><button class="btn-danger">NIE</button></a>
+
+
+        {% endblock %}

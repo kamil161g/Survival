@@ -5,10 +5,18 @@
         <a href="{{ path('viewFood') }}">
             <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Jedzenie : {{ food.value }}</h3>
         </a>
-        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Kamień : {{ village.stone }}</h3>
-        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Węgiel : {{ village.carbon }}</h3>
-        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Złoto : {{ village.gold }}</h3>
-        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Drewno : {{ village.wood }}</h3>
+        <a href="{{ path('viewStone') }}">
+            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Kamień : {{ stone.value }}</h3>
+        </a>
+        <a href="{{ path('viewCarbon') }}">
+            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Węgiel : {{ carbon.value }}</h3>
+        </a>
+        <a href="{{ path('viewGold') }}">
+            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Złoto : {{ gold.value }}</h3>
+        </a>
+        <a href="{{ path('viewWood') }}">
+            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Drewno : {{ wood.value }}</h3>
+        </a>
         <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Poziom wioski : {{ village.level }}</h3>
         <h3 class="btn btn-success btn-lg btn-block" style=" width: 30%">Populacja wioski : {{ village.population }}</h3>
 

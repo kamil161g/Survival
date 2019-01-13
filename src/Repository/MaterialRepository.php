@@ -27,6 +27,38 @@ class MaterialRepository extends ServiceEntityRepository
         $em->flush();
     }
 
+    public function addStone($material, $value)
+    {
+        $em = $this->_em;
+        $material->setValue($value);
+        $em->persist($material);
+        $em->flush();
+    }
+
+    public function addGold($material, $value)
+    {
+        $em = $this->_em;
+        $material->setValue($value);
+        $em->persist($material);
+        $em->flush();
+    }
+
+    public function addWood($material, $value)
+    {
+        $em = $this->_em;
+        $material->setValue($value);
+        $em->persist($material);
+        $em->flush();
+    }
+
+    public function addCarbon($material, $value)
+    {
+        $em = $this->_em;
+        $material->setValue($value);
+        $em->persist($material);
+        $em->flush();
+    }
+
     public function addLevel($material)
     {
         $em = $this->_em;

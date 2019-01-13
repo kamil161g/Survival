@@ -31,7 +31,7 @@ logout:
     path: /logout
 
 #------------------------------------------------------------------------------------------------
-
+#FOOD:
 viewFood:
     path: /viewfood
     controller: App\Controller\ViewFoodController:getFoodAction
@@ -43,3 +43,62 @@ getFood:
 addedLevelFood:
     path: /addedlevelfood
     controller: App\Controller\AddLevelFoodController:addLevelFoodAction
+
+#------------------------------------------------------------------------------------------------
+#Stone:
+viewStone:
+    path: /viewstone
+    controller: App\Controller\ViewStoneController:getStoneAction
+
+getStone:
+    path: /getstone
+    controller: App\Controller\GetStoneController:getStoneAction
+
+addedLevelStone:
+    path: /addedlevelstone
+    controller: App\Controller\AddLevelStoneController:addLevelStoneAction
+
+
+#------------------------------------------------------------------------------------------------
+#Carbon:
+viewCarbon:
+    path: /viewcarbon
+    controller: App\Controller\ViewCarbonController:getCarbonAction
+
+getCarbon:
+    path: /getcarbon
+    controller: App\Controller\GetCarbonController:getCarbonAction
+
+addedLevelCarbon:
+    path: /addedlevelcarbon
+    controller: App\Controller\AddLevelCarbonController:addLevelCarbonAction
+
+
+#------------------------------------------------------------------------------------------------
+##Wood:
+viewWood:
+    path: /viewwood
+    controller: App\Controller\ViewWoodController:getWoodAction
+
+getWood:
+    path: /getwood
+    controller: App\Controller\GetWoodController:getWoodAction
+
+addedLevelWood:
+    path: /addedlevelwood
+    controller: App\Controller\AddLevelWoodController:addLevelWoodAction
+
+
+##------------------------------------------------------------------------------------------------
+#Gold:
+viewGold:
+    path: /viewgold
+    controller: App\Controller\ViewGoldController:getGoldAction
+
+getGold:
+    path: /getgold
+    controller: App\Controller\GetGoldController:getGoldAction
+
+addedLevelGold:
+    path: /addedlevelgold
+    controller: App\Controller\AddLevelGoldController:addLevelGoldAction

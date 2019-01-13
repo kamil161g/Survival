@@ -23,9 +23,41 @@ class ViewVillageController extends AbstractController
                 'category' => 'Food'
             ]);
 
+        $stone = $this->getDoctrine()
+            ->getRepository(Material::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'Stone'
+            ]);
+
+        $gold = $this->getDoctrine()
+            ->getRepository(Material::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'Gold'
+            ]);
+
+        $wood = $this->getDoctrine()
+            ->getRepository(Material::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'Wood'
+            ]);
+
+        $carbon = $this->getDoctrine()
+            ->getRepository(Material::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'Carbon'
+            ]);
+
         return $this->render("Village/villageProfil.html.twig",[
             'village' => $village,
-            'food' => $food
+            'food' => $food,
+            'stone' => $stone,
+            'gold' => $gold,
+            'wood' => $wood,
+            'carbon' => $carbon,
         ]);
     }
 }

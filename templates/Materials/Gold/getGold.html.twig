@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+        {% block body %}
+
+            <p style="color: white;">Poziom szukania złota w twojej wiosce : {{ food_value.level }}</p>
+            <p style="color: white;">Ilośc złota w twojej wiosce : {{ food_value.value }}</p>
+            <p style="color: white;">Czas oczekiwania to : 10 minut</p>
+            <p style="color: white;">Misja zakończy się o : {{ time|date('H:i:s') }}</p>
+
+            <h2>Czy robotnicy mają kopać złoto ?</h2>
+
+
+            <a href="{{ path('getGold') }}"><button class="btn-success">TAK</button></a>
+            <a href="{{ path('viewMenu') }}"><button class="btn-danger">NIE</button></a>
+
+            <h2>Czy chcesz zwiększyć poziom kopania złota ?</h2>
+
+
+            <a href="{{ path('addedLevelGold') }}"><button class="btn-success">TAK</button></a>
+            <a href="{{ path('viewMenu') }}"><button class="btn-danger">NIE</button></a>
+
+
+        {% endblock %}
