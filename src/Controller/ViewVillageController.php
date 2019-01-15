@@ -12,6 +12,9 @@ class ViewVillageController extends AbstractController
 {
     public function viewVillageAction($id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+
         $village = $this->getDoctrine()
             ->getRepository(Village::class)
             ->findOneBy(['user' => $id]);

@@ -30,6 +30,10 @@ editProfilVillage:
 logout:
     path: /logout
 
+checkStatus:
+    path: /checkstatus
+    controller : App\Controller\CheckStatusMissionController:checkStatusAction
+
 #------------------------------------------------------------------------------------------------
 #FOOD:
 viewFood:
@@ -43,6 +47,7 @@ getFood:
 addedLevelFood:
     path: /addedlevelfood
     controller: App\Controller\AddLevelFoodController:addLevelFoodAction
+
 
 #------------------------------------------------------------------------------------------------
 #Stone:

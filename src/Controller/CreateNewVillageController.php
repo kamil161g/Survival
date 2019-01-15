@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Material;
 use App\Entity\Village;
 use App\Form\CreateNewVillageType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,7 @@ class CreateNewVillageController extends AbstractController
     {
         $village = new Village();
 
+
         $form = $this->createForm(CreateNewVillageType::class);
 
             $form->handleRequest($request);
@@ -23,17 +25,21 @@ class CreateNewVillageController extends AbstractController
             ->getRepository(Village::class)
             ->findOneBy(['user' => $this->getUser()]);
 
-            if($checkVillage){
-                return $this->redirectToRoute('index');
-            }
+                if($checkVillage){
+                    return $this->redirectToRoute('index');
+                }
 
-            if($form->isSubmitted() && $form->isValid()){
+                if($form->isSubmitted() && $form->isValid()){
 
-                $name = $form->get('name')->getViewData();
+                    $name = $form->get('name')->getViewData();
 
-                $this->getDoctrine()
-                    ->getRepository(Village::class)
-                    ->createNewVillage($village, $this->getUser(), $name);
+                    $this->getDoctrine()
+                        ->getRepository(Village::class)
+                        ->createNewVillage($village, $this->getUser(), $name);
+
+                        $this->getDoctrine()
+                             ->getRepository(Material::class)
+                             ->createMaterial($this->getUser());
 
             }
 

@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Material;
+use App\Entity\StatusMission;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ViewGoldController extends AbstractController
@@ -21,10 +22,29 @@ class ViewGoldController extends AbstractController
         $time = date('H:i:s', strtotime('+10 minutes'));
 
 
-        return $this->render("Materials/Gold/getGold.html.twig",[
-            'food_value' => $searchFood,
-            'time' => $time
-        ]);
+        $statusMission = $this->getDoctrine()
+            ->getRepository(StatusMission::class)
+            ->findOneBy([
+                'user' => $this->getUser(),
+            ]);
+
+        if($statusMission == null){
+            $status = null;
+
+            return $this->render("Materials/Gold/getGold.html.twig",[
+                'food_value' => $searchFood,
+                'time' => $time,
+                'status' => $status
+            ]);
+        }else{
+            $timeFinish = $statusMission->getFinishTime();
+            return $this->render("Materials/Gold/getGold.html.twig",[
+                'food_value' => $searchFood,
+                'time' => $time,
+                'timeFinish' => $timeFinish,
+                'status' => $statusMission
+            ]);
+        }
     }
 
 }

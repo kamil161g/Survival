@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+        {% block body %}
+
+            <h2>Nie ukończyłeś jeszcze misji :(</h2>
+
+            <a href="{{ path('viewFood') }}">
+                <button class="btn-success"><h4>Wróć</h4></button>
+            </a>
+
+        {% endblock %}

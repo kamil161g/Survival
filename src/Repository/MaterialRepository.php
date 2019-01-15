@@ -67,4 +67,64 @@ class MaterialRepository extends ServiceEntityRepository
         $em->persist($material);
         $em->flush();
     }
+
+    public function createMaterial($user)
+    {
+        $em = $this->_em;
+
+        for ($i=0; $i <= 4; $i++)
+        {
+            switch ($i) {
+                case 0:
+                    $material = new Material();
+                    $material->setCategory('Food');
+                    $material->setValue('100');
+                    $material->setLevel('1');
+                    $material->setUser($user);
+                    $em->persist($material);
+                    $em->flush();
+                    break;
+                case 1:
+                    $material = new Material();
+                    $em = $this->_em;
+                    $material->setCategory('Wood');
+                    $material->setValue('100');
+                    $material->setLevel('1');
+                    $material->setUser($user);
+                    $em->persist($material);
+                    $em->flush();
+                    break;
+                case 2:
+                    $material = new Material();
+                    $material->setCategory('Stone');
+                    $material->setValue('100');
+                    $material->setLevel('1');
+                    $material->setUser($user);
+                    $em->persist($material);
+                    $em->flush();
+                    break;
+                case 3:
+                    $material = new Material();
+                    $material->setCategory('Carbon');
+                    $material->setValue('100');
+                    $material->setLevel('1');
+                    $material->setUser($user);
+                    $em->persist($material);
+                    $em->flush();
+                    break;
+                case 4:
+                    $material = new Material();
+                    $em = $this->_em;
+                    $material->setCategory('Gold');
+                    $material->setValue('100');
+                    $material->setLevel('1');
+                    $material->setUser($user);
+                    $em->persist($material);
+                    $em->flush();
+                    break;
+            }
+        }
+
+
+    }
 }

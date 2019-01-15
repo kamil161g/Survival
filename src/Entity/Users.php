@@ -45,13 +45,11 @@ class Users implements  UserInterface
     private $village;
 
     /**
-     * @var Food
-     * @ORM\OneToMany(targetEntity="App\Entity\Food", mappedBy="user")
+     * @var StatusMission
+     * @ORM\OneToMany(targetEntity="App\Entity\StatusMission", mappedBy="user")
      * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
-    private $food;
-
-
+    private $statusMission;
 
     public function getId(): ?int
     {
@@ -167,6 +165,7 @@ class Users implements  UserInterface
     {
         $this->village = new ArrayCollection();
         $this->food = new ArrayCollection();
+        $this->statusMission = new ArrayCollection();
     }
 
     /**
@@ -206,6 +205,24 @@ class Users implements  UserInterface
     {
         return $this->food;
     }
+
+    /**
+     * @return StatusMission
+     */
+    public function getStatusMission(): StatusMission
+    {
+        return $this->statusMission;
+    }
+
+    /**
+     * @param StatusMission $statusMission
+     */
+    public function setStatusMission(StatusMission $statusMission)
+    {
+        $this->statusMission = $statusMission;
+    }
+
+
 
 
 

@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Material;
+use App\Entity\StatusMission;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ViewStoneController extends AbstractController
@@ -20,11 +21,29 @@ class ViewStoneController extends AbstractController
 
         $time = date('H:i:s', strtotime('+10 minutes'));
 
+        $statusMission = $this->getDoctrine()
+            ->getRepository(StatusMission::class)
+            ->findOneBy([
+                'user' => $this->getUser(),
+            ]);
 
-        return $this->render("Materials/Stone/getStone.html.twig",[
-            'food_value' => $searchFood,
-            'time' => $time
-        ]);
+        if($statusMission == null){
+            $status = null;
+
+            return $this->render("Materials/Stone/getStone.html.twig",[
+                'food_value' => $searchFood,
+                'time' => $time,
+                'status' => $status
+            ]);
+        }else{
+            $timeFinish = $statusMission->getFinishTime();
+            return $this->render("Materials/Stone/getStone.html.twig",[
+                'food_value' => $searchFood,
+                'time' => $time,
+                'timeFinish' => $timeFinish,
+                'status' => $statusMission
+            ]);
+        }
     }
 
 }

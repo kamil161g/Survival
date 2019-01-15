@@ -2,16 +2,31 @@
 
         {% block body %}
 
+            {% for message in app.flashes("success") %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
+
+            {% for message in app.flashes("error") %}
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
+            {% endfor %}
+
             <p style="color: white;">Poziom szukania kamienia w twojej wiosce : {{ food_value.level }}</p>
             <p style="color: white;">Ilośc kamienia w twojej wiosce : {{ food_value.value }}</p>
             <p style="color: white;">Czas oczekiwania to : 10 minut</p>
             <p style="color: white;">Misja zakończy się o : {{ time|date('H:i:s') }}</p>
 
-            <h2>Czy robotnicy mają kopać kamień ?</h2>
+            {% if status is not null %}
 
+                <p style="color: white;">Obecna misja zakończy się o : {{ timeFinish|date('H:i:s') }}</p>
 
-            <a href="{{ path('getStone') }}"><button class="btn-success">TAK</button></a>
-            <a href="{{ path('viewMenu') }}"><button class="btn-danger">NIE</button></a>
+                <a href="{{ path('getStone') }}"><button class="btn-success">Zakończ misje</button></a>
+
+            {% else %}
+                <h2>Czy chcesz wysłać swoich ludzi na poszukiwania kamienia ?</h2>
+
+                <a href="{{ path('checkStatus') }}"><button class="btn-success">TAK</button></a>
+                <a href="{{ path('viewMenu') }}"><button class="btn-danger">NIE</button></a>
+            {% endif %}
 
             <h2>Czy chcesz zwiększyć poziom kopania kamienia ?</h2>
 

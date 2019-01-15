@@ -24,7 +24,6 @@ class RegistrationController extends AbstractController
 
                 $password = $passwordEncoder->encodePassword($users, $users->getPlainPassword());
 
-
                 $this->getDoctrine()
                     ->getRepository(Users::class)
                     ->addUser($users, $password);

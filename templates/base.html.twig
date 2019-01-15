@@ -8,10 +8,16 @@
     {% endblock %}
     <body style="background-color: rgba(74,74,74,0.91)">
     <div class="container"><h2 style="color: red"> SurvivalVillage </h2>
-
+        <a href="{{ path('index') }}"><button class="btn-default">HOME</button> </a>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <a href="{{ path('logout') }}">WYLOGUJ SIĘ</a>
+            <a href="{{ path('logout') }}"><button class="btn-warning">Wyloguj się</button> </a>
+            <a href="{{ path('myProfilVillage', {'id': app.user.id}) }}"><button class="btn-success">Wioska</button> </a>
+        {% else %}
+            <a href="{{ path('app_login') }}"><button class="btn-success">Zaloguj się</button> </a>
+
         {% endif %}
+
+
         {% block body %}
 
             
