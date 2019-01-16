@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MaterialRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BuildRepository")
  */
-class Material
+class Build
 {
     /**
      * @ORM\Id()
@@ -24,19 +24,18 @@ class Material
     /**
      * @ORM\Column(type="integer")
      */
-    private $value;
+    private $population;
+
+    /**
+     * @var Users
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="id")
+     */
+    private $user;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $level;
-
-    /**
-     * @var Users
-     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="village")
-     *
-     */
-    private $user;
+    private $quantity;
 
     public function getId(): ?int
     {
@@ -55,32 +54,28 @@ class Material
         return $this;
     }
 
-    public function getValue(): ?int
+    public function getPopulation(): ?int
     {
-        return $this->value;
+        return $this->population;
     }
 
-    public function setValue(int $value): self
+    public function setPopulation(int $population): self
     {
-        $this->value = $value;
+        $this->population = $population;
 
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getLevel()
+    public function getQuantity(): ?int
     {
-        return $this->level;
+        return $this->quantity;
     }
 
-    /**
-     * @param mixed $level
-     */
-    public function setLevel($level)
+    public function setQuantity(int $quantity): self
     {
-        $this->level = $level;
+        $this->quantity = $quantity;
+
+        return $this;
     }
 
     /**
@@ -98,4 +93,6 @@ class Material
     {
         $this->user = $user;
     }
+
+
 }

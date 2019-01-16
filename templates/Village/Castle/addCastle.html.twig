@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+
+        {% block body %}
+
+            {% for message in app.flashes("success") %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
+
+            {% for message in app.flashes("error") %}
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
+            {% endfor %}
+
+            <h3>Zatrudnij żołnierzy (ilość : 10)</h3>
+            <p style="color: gold">Wymagania to 1000x Drewno, 1000x Jedzenie, 1000x Złota</p>
+            <a href="{{ path('addCastleFinish', {'population': 10}) }}"><button class="btn-success">
+                    Dodaj dom</button></a>
+            <h3>Zatrudnij żołnierzy (ilość : 50)</h3>
+            <p style="color: gold">Wymagania to 5000x Drewno, 5000x Jedzenie, 5000x Złota</p>
+            <a href="{{ path('addCastleFinish', {'population': 50}) }}"><button class="btn-success">
+                    Dodaj dom</button></a>
+            <h3>Zatrudnij żołnierzy (ilość : 100)</h3>
+            <p style="color: gold">Wymagania to 10000x Drewno, 10000x Jedzenie, 10000x Złota</p>
+            <a href="{{ path('addCastleFinish', {'population': 100}) }}"><button class="btn-success">
+                    Dodaj dom</button></a>
+
+
+    {% endblock %}

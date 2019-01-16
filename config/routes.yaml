@@ -107,3 +107,25 @@ getGold:
 addedLevelGold:
     path: /addedlevelgold
     controller: App\Controller\AddLevelGoldController:addLevelGoldAction
+
+##------------------------------------------------------------------------------------------------
+#ExpandVillage:
+expandVillage:
+    path: /expandvillage
+    controller: App\Controller\ExpandVillageController:expandVillageAction
+
+addHouse:
+    path: /addhouse
+    controller: App\Controller\AddHouseController:addHouseAction
+
+addHouseFinish:
+    path: /addhouse/{population}
+    controller: App\Controller\AddHouseController:addHouseFinishAction
+
+addCastle:
+    path: /addcastle
+    controller: App\Controller\AddCastleController:addCastleAction
+
+addCastleFinish:
+    path: /addcastle/{population}
+    controller: App\Controller\AddCastleController:addFinishCastleAction

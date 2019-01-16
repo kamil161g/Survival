@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+        {% for message in app.flashes("success") %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+
+        {% for message in app.flashes("error") %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% endfor %}
+
+    <h3>Dodaj dom o pojemności 100 ludzi.</h3>
+        <p style="color: gold">Wymagania to 1000x Drewno, 1000x Jedzenie, 1000x Kamień</p>
+        <a href="{{ path('addHouseFinish', {'population': 100}) }}"><button class="btn-success">
+                Dodaj dom</button></a>
+    <h3>Dodaj dom o pojemności 700 ludzi.</h3>
+        <p style="color: gold">Wymagania to 5000x Drewno, 5000x Jedzenie, 5000x Kamień</p>
+        <a href="{{ path('addHouseFinish', {'population': 700}) }}"><button class="btn-success">
+                Dodaj dom</button></a>
+    <h3>Dodaj dom o pojemności 1000 ludzi.</h3>
+        <p style="color: gold">Wymagania to 10000x Drewno, 10000x Jedzenie, 10000x Kamień</p>
+        <a href="{{ path('addHouseFinish', {'population': 1000}) }}"><button class="btn-success">
+                Dodaj dom</button></a>
+
+    {% endblock %}

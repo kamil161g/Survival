@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+
+
+            <div class="container">
+                <h1 class="btn btn-default btn-lg btn-block" style=" width: 30%">xxxx</h1>
+                <a href="{{ path('addHouse') }}">
+                    <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Dodaj budynki mieszkalne</h3>
+                </a>
+                <a href="{{ path('addCastle') }}">
+                    <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Dodaj zamek</h3>
+                </a>
+                <a href="{{ path('viewCarbon') }}">
+                    <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">xxxx</h3>
+                </a>
+                <a href="{{ path('viewGold') }}">
+                    <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">xxxx</h3>
+                </a>
+                <a href="{{ path('viewWood') }}">
+                    <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">xxxx</h3>
+                </a>
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">xxxx</h3>
+                <h3 class="btn btn-success btn-lg btn-block" style=" width: 30%">xxxx</h3>
+
+            </div>
+        {% endblock %}
+

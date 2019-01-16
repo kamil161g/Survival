@@ -51,6 +51,14 @@ class Users implements  UserInterface
      */
     private $statusMission;
 
+    /**
+     * @var Build
+     * @ORM\OneToMany(targetEntity="App\Entity\Build", mappedBy="user")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $build;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -166,6 +174,7 @@ class Users implements  UserInterface
         $this->village = new ArrayCollection();
         $this->food = new ArrayCollection();
         $this->statusMission = new ArrayCollection();
+        $this->build = new ArrayCollection();
     }
 
     /**
@@ -220,6 +229,38 @@ class Users implements  UserInterface
     public function setStatusMission(StatusMission $statusMission)
     {
         $this->statusMission = $statusMission;
+    }
+
+    /**
+     * @return Build
+     */
+    public function getBuild(): Build
+    {
+        return $this->build;
+    }
+
+    /**
+     * @param Build $build
+     */
+    public function setBuild(Build $build)
+    {
+        $this->build = $build;
+    }
+
+    /**
+     * @return Village
+     */
+    public function getVillage(): Village
+    {
+        return $this->village;
+    }
+
+    /**
+     * @param Village $village
+     */
+    public function setVillage(Village $village)
+    {
+        $this->village = $village;
     }
 
 
