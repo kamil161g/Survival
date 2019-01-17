@@ -129,3 +129,22 @@ addCastle:
 addCastleFinish:
     path: /addcastle/{population}
     controller: App\Controller\AddCastleController:addFinishCastleAction
+
+##------------------------------------------------------------------------------------------------
+#STATS
+
+attack:
+    path: /viewattack
+    controller: App\Controller\AttackController:viewAttackAction
+
+attackAdd:
+    path: /addattack
+    controller: App\Controller\AttackController:addPointsAttackAction
+
+defense:
+    path: /viewdefense
+    controller: App\Controller\DefenseController:viewDefensekAction
+
+defenseAdd:
+    path: /adddefense
+    controller: App\Controller\DefenseController:addPointsDefenseAction

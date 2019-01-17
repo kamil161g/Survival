@@ -3,26 +3,43 @@
 
 
     <div class="container">
-        <a href="{{ path('expandVillage') }}">
-            <h3 class="btn btn-default btn-lg btn-block" style=" width: 30%">Wioska : {{ village.name }}</h3>
-        </a>        <a href="{{ path('viewFood') }}">
-            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Jedzenie : {{ food.value }}</h3>
-        </a>
-        <a href="{{ path('viewStone') }}">
-            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Kamień : {{ stone.value }}</h3>
-        </a>
-        <a href="{{ path('viewCarbon') }}">
-            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Węgiel : {{ carbon.value }}</h3>
-        </a>
-        <a href="{{ path('viewGold') }}">
-            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Złoto : {{ gold.value }}</h3>
-        </a>
-        <a href="{{ path('viewWood') }}">
-            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Drewno : {{ wood.value }}</h3>
-        </a>
-        <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Poziom wioski : {{ village.level }}</h3>
-        <h3 class="btn btn-success btn-lg btn-block" style=" width: 30%">Populacja wioski : {{ village.population }}</h3>
+        <div class="gasior" style="float: left; width: 70% ">
+            <a href="{{ path('expandVillage') }}">
+                <h3 class="btn btn-default btn-lg btn-block" style=" width: 30%">Wioska : {{ village.name }}</h3>
+            </a>        <a href="{{ path('viewFood') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Jedzenie : {{ food.value }}</h3>
+            </a>
+            <a href="{{ path('viewStone') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Kamień : {{ stone.value }}</h3>
+            </a>
+            <a href="{{ path('viewCarbon') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Węgiel : {{ carbon.value }}</h3>
+            </a>
+            <a href="{{ path('viewGold') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Złoto : {{ gold.value }}</h3>
+            </a>
+            <a href="{{ path('viewWood') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Drewno : {{ wood.value }}</h3>
+            </a>
+            <h3 class="btn btn-primary btn-lg btn-block" style=" width: 30%">Poziom wioski : {{ village.level }}</h3>
+            <h3 class="btn btn-success btn-lg btn-block" style=" width: 30%">Populacja wioski : {{ village.population }}</h3>
+        </div>
 
+        <div class="kamil" style="float: left; width: 30%">
+            <a href="{{ path('attack') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 60%">Atak wioski : ({{ valueMin }} - {{ valueMax }})</h3>
+            </a>
+            <a href="{{ path('defense') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 60%">Obrona wioski : {{ valueDefense }}</h3>
+            </a>
+            <a href="{{ path('viewWood') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 60%">HP wioski : {{ wood.value }}</h3>
+            </a>
+            <a href="{{ path('viewWood') }}">
+                <h3 class="btn btn-primary btn-lg btn-block" style=" width: 60%">Magia : {{ wood.value }}</h3>
+            </a>
+
+        </div>
 
     </div>
     {% endblock %}

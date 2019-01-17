@@ -58,6 +58,12 @@ class Users implements  UserInterface
      */
     private $build;
 
+    /**
+     * @var Stat
+     * @ORM\OneToMany(targetEntity="App\Entity\Stat", mappedBy="user")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $stat;
 
     public function getId(): ?int
     {
@@ -175,6 +181,7 @@ class Users implements  UserInterface
         $this->food = new ArrayCollection();
         $this->statusMission = new ArrayCollection();
         $this->build = new ArrayCollection();
+        $this->stat = new ArrayCollection();
     }
 
     /**
@@ -263,12 +270,21 @@ class Users implements  UserInterface
         $this->village = $village;
     }
 
+    /**
+     * @return Stat
+     */
+    public function getStat(): Stat
+    {
+        return $this->stat;
+    }
 
-
-
-
-
-
+    /**
+     * @param Stat $stat
+     */
+    public function setStat(Stat $stat)
+    {
+        $this->stat = $stat;
+    }
 
 
 }

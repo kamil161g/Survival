@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Material;
+use App\Entity\Stat;
 use App\Entity\Village;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -54,6 +55,21 @@ class ViewVillageController extends AbstractController
                 'category' => 'Carbon'
             ]);
 
+        $valueAtttack = $this->getDoctrine()
+            ->getRepository(Stat::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'Attack'
+            ]);
+
+
+        $valueDefense = $this->getDoctrine()
+            ->getRepository(Stat::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'Defense'
+            ]);
+
         return $this->render("Village/villageProfil.html.twig",[
             'village' => $village,
             'food' => $food,
@@ -61,6 +77,9 @@ class ViewVillageController extends AbstractController
             'gold' => $gold,
             'wood' => $wood,
             'carbon' => $carbon,
+            'valueMin' => $valueAtttack->getValueMin(),
+            'valueMax' => $valueAtttack->getValueMax(),
+            'valueDefense' => $valueDefense->getValueMax(),
         ]);
     }
 }

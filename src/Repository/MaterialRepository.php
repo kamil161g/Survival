@@ -127,4 +127,20 @@ class MaterialRepository extends ServiceEntityRepository
 
 
     }
+
+    public function removeGold($user, $gold)
+    {
+        $em = $this->_em;
+        $user->setValue($user->getValue()-$gold);
+        $em->persist($user);
+        $em->flush();
+    }
+
+    public function removeCarbon($user, $carbon)
+    {
+        $em = $this->_em;
+        $user->setValue($user->getValue()-$carbon);
+        $em->persist($user);
+        $em->flush();
+    }
 }
