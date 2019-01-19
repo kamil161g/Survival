@@ -70,6 +70,13 @@ class ViewVillageController extends AbstractController
                 'category' => 'Defense'
             ]);
 
+        $valueHP = $this->getDoctrine()
+            ->getRepository(Stat::class)
+            ->findOneBy([
+                'user' => $id,
+                'category' => 'HP'
+            ]);
+
         return $this->render("Village/villageProfil.html.twig",[
             'village' => $village,
             'food' => $food,
@@ -80,6 +87,7 @@ class ViewVillageController extends AbstractController
             'valueMin' => $valueAtttack->getValueMin(),
             'valueMax' => $valueAtttack->getValueMax(),
             'valueDefense' => $valueDefense->getValueMax(),
+            'hp' => $valueHP->getValueMax(),
         ]);
     }
 }

@@ -148,3 +148,12 @@ defense:
 defenseAdd:
     path: /adddefense
     controller: App\Controller\DefenseController:addPointsDefenseAction
+
+hp:
+    path: /viewhp
+    controller: App\Controller\HpVillageController:viewHpAction
+
+hpAdd:
+    path: /addhp
+    controller: App\Controller\HpVillageController:addPointsHpAction
+

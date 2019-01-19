@@ -11,6 +11,7 @@ namespace App\Controller;
 
 use App\Entity\Build;
 use App\Entity\Material;
+use App\Entity\Stat;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,6 +25,8 @@ class AddCastleController extends AbstractController
 
     public function addFinishCastleAction($population, Request $request)
     {
+
+        $a = false;
         $category = "Castle";
 
         $checkFood = $this->getDoctrine()
@@ -57,6 +60,9 @@ class AddCastleController extends AbstractController
         if(!$build)
             $build = new Build();
 
+        $valueMin = $population*2;
+        $valueMax = $population*3;
+
         switch ($population)
         {
             case 10:
@@ -64,7 +70,10 @@ class AddCastleController extends AbstractController
                     $checkStone->getValue() >= 1000 &&
                     $checkWood->getValue() > 1000){
 
-                    $add = $this->getDoctrine()
+                    $a = true;
+                    $required = 1000;
+
+                    $this->getDoctrine()
                         ->getRepository(Build::class)
                         ->addHouse($build, $population, $this->getUser(), $category);
 
@@ -80,6 +89,9 @@ class AddCastleController extends AbstractController
                 if($checkFood->getValue() >= 5000 &&
                     $checkStone->getValue() >= 5000 &&
                     $checkWood->getValue() >= 5000){
+
+                    $a = true;
+                    $required = 5000;
 
                     $add = $this->getDoctrine()
                         ->getRepository(Build::class)
@@ -97,6 +109,9 @@ class AddCastleController extends AbstractController
                     $checkStone->getValue() >= 10000 &&
                     $checkWood->getValue() >= 10000){
 
+                    $a = true;
+                    $required = 10000;
+
                     $add = $this->getDoctrine()
                         ->getRepository(Build::class)
                         ->addHouse($build, $population, $this->getUser(), $category);
@@ -109,10 +124,58 @@ class AddCastleController extends AbstractController
                 break;
         }
 
+        if($a){
+            $value = $this->getDoctrine()
+                ->getRepository(Stat::class)
+                ->findOneBy([
+                    'user' => $this->getUser(),
+                    'category' => 'Attack'
+                ]);
+
+            $gold = $this->getDoctrine()
+                ->getRepository(Material::class)
+                ->findOneBy([
+                    'user' => $this->getUser(),
+                    'category' => 'Gold'
+                ]);
+
+            $food = $this->getDoctrine()
+                ->getRepository(Material::class)
+                ->findOneBy([
+                    'user' => $this->getUser(),
+                    'category' => 'Food'
+                ]);
+
+            $wood = $this->getDoctrine()
+                ->getRepository(Material::class)
+                ->findOneBy([
+                    'user' => $this->getUser(),
+                    'category' => 'Wood'
+                ]);
+
+            $valueMin = $value->getValueMin() + $value->getValueMin()*0.2;
+            $valueMax = $value->getValueMax() + $value->getValueMax()*0.2;
+
+
+            $this->getDoctrine()
+                ->getRepository(Stat::class)
+                ->addPoints($valueMin, $valueMax, $value);
+
+            $this->getDoctrine()
+                ->getRepository(Material::class)
+                ->removeGold($gold, $required);
+
+            $this->getDoctrine()
+                ->getRepository(Material::class)
+                ->removeWood($wood, $required);
+
+            $this->getDoctrine()
+                ->getRepository(Material::class)
+                ->removeFood($food, $required);
+        }
 
 
         return $this->redirect($request->headers->get('referer'));
 
-        return 0;
     }
 }

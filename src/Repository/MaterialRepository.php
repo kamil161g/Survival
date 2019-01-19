@@ -143,4 +143,20 @@ class MaterialRepository extends ServiceEntityRepository
         $em->persist($user);
         $em->flush();
     }
+
+    public function removeFood($user, $food)
+    {
+        $em = $this->_em;
+        $user->setValue($user->getValue()-$food);
+        $em->persist($user);
+        $em->flush();
+    }
+
+    public function removeWood($user, $wood)
+    {
+        $em = $this->_em;
+        $user->setValue($user->getValue()-$wood);
+        $em->persist($user);
+        $em->flush();
+    }
 }

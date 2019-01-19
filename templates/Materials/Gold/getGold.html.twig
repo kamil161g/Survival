@@ -2,6 +2,14 @@
 
         {% block body %}
 
+            {% for message in app.flashes("success") %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+            {% endfor %}
+
+            {% for message in app.flashes("error") %}
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
+            {% endfor %}
+
             <p style="color: white;">Poziom szukania złota w twojej wiosce : {{ food_value.level }}</p>
             <p style="color: white;">Ilośc złota w twojej wiosce : {{ food_value.value }}</p>
             <p style="color: white;">Czas oczekiwania to : 10 minut</p>
